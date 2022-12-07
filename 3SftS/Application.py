@@ -18,35 +18,10 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import tkinter
-
 import sv_ttk
+from ux.MainWindow import MainWindow
 
-from tkinter import ttk
 
-
-window = tkinter.Tk()
-window.title("sub-title-auto-correct")
-window.geometry('1280x720')
-
-fix_i_button = tkinter.Button(window, text="Hello")
-fix_i_button.pack()
-
-ttk.Label(window, text="Enter your comment :", font=("Times New Roman", 15))
-text_field = tkinter.Text(window, width=20, height=3)
-text_field.pack()
-
-mb = tkinter.Menubutton(window, text="CheckComboBox")
-mb.pack()
-mb.menu = tkinter.Menu(mb, tearoff=0)
-mb["menu"] = mb.menu
-
-#imgvar2 = PhotoImage(file='timeline_logowhite_400.png')
-mb.menu.add_command(label="Item0")
-mb.menu.add_command(label="Item1")
-mb.menu.add_command(label="Item2")
-
-# This is where the magic happens
+main_window = MainWindow()
 sv_ttk.set_theme("dark")
-
-window.mainloop()
+main_window.window.mainloop()
