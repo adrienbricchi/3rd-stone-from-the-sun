@@ -1,1 +1,11 @@
-# 3rd-stone-from-the-sun
+3rd Stone from the Sun
+=======================
+
+MIDI controller for guitar & bass pedals
+
+## License
+
+License GPLv3+ : GNU GPL version 3 or later \<<http://gnu.org/licenses/gpl.html>\>.  
+This is free software: you are free to change and redistribute it.  
+There is NO WARRANTY, to the extent permitted by law.  
+
