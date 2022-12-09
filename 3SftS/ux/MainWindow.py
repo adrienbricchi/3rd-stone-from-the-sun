@@ -18,7 +18,6 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import tkinter
-from tkinter import Frame
 
 
 brand_names = ["BOSS", "Digitech", "Strymon", "TC Electronic"]
@@ -28,12 +27,20 @@ pedal_names = ["BigSky", "Ditto x4", "EQ-200", "ML5", "Mobius", "Timeline", "Wha
 class BrandHeader:
 
     def __init__(self, window):
-        self._view = tkinter.Menubutton(window, text="Brand")
-        self._view.menu = tkinter.Menu(self._view, tearoff=0)
-        self._view["menu"] = self._view.menu
+        """Build the composite view"""
+        wrapper_frame = tkinter.Frame(window, width=100, height=25)
+        wrapper_frame.columnconfigure(0, weight=10)
+        wrapper_frame.grid_propagate(False)
+        # Menu button
+        menu_button = tkinter.Menubutton(wrapper_frame, text="Brand")
+        menu_button.menu = tkinter.Menu(menu_button, tearoff=0)
+        menu_button["menu"] = menu_button.menu
         for brand_name in brand_names:
             # imgvar2 = PhotoImage(file='timeline_logowhite_400.png')
-            self._view.menu.add_command(label=brand_name, image="")
+            menu_button.menu.add_command(label=brand_name, image="")
+        menu_button.grid(sticky="nesw")
+        # Pack everything up
+        self._view = wrapper_frame
 
     @property
     def view(self):
@@ -44,12 +51,20 @@ class BrandHeader:
 class PedalHeader:
 
     def __init__(self, window):
-        self._view = tkinter.Menubutton(window, text="Pedal")
-        self._view.menu = tkinter.Menu(self._view, tearoff=0)
-        self._view["menu"] = self._view.menu
+        """Build the composite view"""
+        wrapper_frame = tkinter.Frame(window, width=200, height=50)
+        wrapper_frame.columnconfigure(0, weight=10)
+        wrapper_frame.grid_propagate(False)
+        # Menu button
+        menu_button = tkinter.Menubutton(wrapper_frame, text="Pedal")
+        menu_button.menu = tkinter.Menu(menu_button, tearoff=0)
+        menu_button["menu"] = menu_button.menu
         for pedal_name in pedal_names:
             # imgvar2 = PhotoImage(file='timeline_logowhite_400.png')
-            self._view.menu.add_command(label=pedal_name, image="")
+            menu_button.menu.add_command(label=pedal_name, image="")
+        menu_button.grid(sticky="nesw")
+        # Pack everything up
+        self._view = wrapper_frame
 
     @property
     def view(self):
