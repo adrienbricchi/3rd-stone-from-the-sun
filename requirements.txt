@@ -1,1 +1,2 @@
 sv-ttk==2.0
+jsonpath-ng==1.5.3

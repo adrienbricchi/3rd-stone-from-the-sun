@@ -18,9 +18,10 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import tkinter
+from .OpenMidiParser import OpenMidiParser
 
-
-brand_names = ["BOSS", "Digitech", "Strymon", "TC Electronic"]
+open_midi = OpenMidiParser()
+brands = open_midi.brands
 pedal_names = ["BigSky", "Ditto x4", "EQ-200", "ML5", "Mobius", "Timeline", "Whammy"]
 
 
@@ -35,9 +36,9 @@ class BrandHeader:
         menu_button = tkinter.Menubutton(wrapper_frame, text="Brand")
         menu_button.menu = tkinter.Menu(menu_button, tearoff=0)
         menu_button["menu"] = menu_button.menu
-        for brand_name in brand_names:
+        for brand in brands:
             # imgvar2 = PhotoImage(file='timeline_logowhite_400.png')
-            menu_button.menu.add_command(label=brand_name, image="")
+            menu_button.menu.add_command(label=brand.name, image="")
         menu_button.grid(sticky="nesw")
         # Pack everything up
         self._view = wrapper_frame
